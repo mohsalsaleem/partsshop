@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+<% if !@cart_items.empty? %>
+<div class="container">
+	<div class="row">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Item</th>
+					<th>Quantity</th>
+					<th>Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @cart_items.each do |cart_item| %>
+					<tr>
+						<td><%= cart_item[1][0] %></td>
+						<td><%= cart_item[1][1] %></td>
+						<td><%= cart_item[1][2] %></td>
+					</tr>
+				<% end %>
+					<tr>
+						<td></td>
+						<td><h4>Total: </h4></td>
+						<td><%= @total_price %></td>
+					</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="row">
+		<div class="col-md-8">
+		</div>
+		<div class="col-md-4">
+			<%= link_to "Checkout", addresses_path, class: "btn btn-primary" %>
+		</div>
+	</div>
+</div>
+<% else %>
+<div class="container">
+	<div class="row">
+		<center> No items on cart. Please add some. </center>
+	</div>
+</div>
+<%end%>

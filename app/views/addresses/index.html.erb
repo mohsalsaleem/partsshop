@@ -1,0 +1,37 @@
+<div class="container">
+<div class="row">
+<p id="notice"><%= notice %></p>
+
+<h2> Choose an address </h2>
+
+<p>Your Addresses<p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Plot no</th>
+      <th>Street</th>
+      <th>City</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @addresses.each do |address| %>
+      <tr>
+        <td><%= address.plot_no %></td>
+        <td><%= address.street %></td>
+        <td><%= address.city %></td>
+        <td><%= link_to 'Show', address %></td>
+        <td><%= link_to 'Edit', edit_address_path(address) %></td>
+        <td><%= link_to 'Destroy', address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Choose', review_order_items_path(address_id: address.id) %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Address', new_address_path %>
+</div>
+</div>

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+	<div class="row">
+	<p> Placed by: <%= @order.placed_by %></p>
+	<p> Shipping to: <%= @order.shipping_to %></p>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Item</th>
+					<th>Quantity</th>
+					<th>Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @order_items.each do |order_item| %>
+					<tr>
+						<td><%= order_item[1][0] %></td>
+						<td><%= order_item[1][1] %></td>
+						<td><%= order_item[1][2] %></td>
+					</tr>
+				<% end %>
+					<tr>
+						<td></td>
+						<td><h4>Total: </h4></td>
+						<td><%= @total_price %> Rs</td>
+					</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

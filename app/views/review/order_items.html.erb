@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+	<div class="row">
+		<h2> Review Order </h2>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Item</th>
+					<th>Quantity</th>
+					<th>Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @cart_items.each do |cart_item| %>
+					<tr>
+						<td><%= cart_item[1][0] %></td>
+						<td><%= cart_item[1][1] %></td>
+						<td><%= cart_item[1][2] %></td>
+					</tr>
+				<% end %>
+					<tr>
+						<td></td>
+						<td><h4>Total: </h4></td>
+						<td><%= @total_price %></td>
+					</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="row">
+		<div class="col-md-8">
+			<div class="list-group">
+			  <p class="list-group-item active">
+			   		Address
+			  </p>
+			  <h3 class="list-group-item"><%= @address.name %></h3>
+			  <p  class="list-group-item"><%= @address.phone_number %></p>
+			  <p  class="list-group-item"><%= @address.plot_no %>,<%= @address.street %></p>
+			  <p  class="list-group-item"><%= @address.locality %>,<%= @address.city %></p>
+			  <p  class="list-group-item"><%= @address.state %></p>
+			  <p  class="list-group-item"><%= @address.pincode %></p>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<%= link_to "Place Order", orders_path(address_id: @address.id), method: :post, class: "btn btn-success" %>
+		</div>
+	</div>
+</div>
