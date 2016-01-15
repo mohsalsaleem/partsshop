@@ -1,6 +1,7 @@
 require 'json'
 
 class CartController < ApplicationController
+
   def items
     if cookies[:cart_items]
     	items = JSON.parse cookies[:cart_items]

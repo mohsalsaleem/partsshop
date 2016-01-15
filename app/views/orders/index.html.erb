@@ -1,5 +1,6 @@
 <div class="container">
 	<div class="row">
+	<% if @order %>
 		<table class="table">
 			<thead>
 				<tr>
@@ -22,17 +23,21 @@
 					<td>Order not confirmed yet.</td>
 					<% elsif order.status == true %>
 					<td>Order Confirmed</td>
-					<% elsif order.status %>
+					<% elsif order.status == false %>
 					<td>Order has been denied. Contact the team</td>
 					<% end %>
 					<td><%= link_to "Show", order_path(order.id), class: "btn btn-primary" %></td>
 					<%if admin_signed_in? %>
 					<td><%= link_to "Cofirm Order?", order_confirm_path(order_id: order.id), remote: true, class: "btn btn-success", id: "confirmOrder" %></td>
 					<td><%= link_to "Deny Order?", order_deny_path(order_id: order.id), remote: true, class: "btn btn-danger", id: "denyOrder" %></td>
+					<td><%= link_to "Delete", order, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>	</td>
 					<% end %>
 				</tr>
 			<% end %>
 			</tbody>
 		</table>
+		<% else %>
+			<center><p> No order Yet </p></center>
+		<% end %>
 	</div>
 </div>

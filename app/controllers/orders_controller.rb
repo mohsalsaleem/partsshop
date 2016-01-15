@@ -1,5 +1,8 @@
 require 'json'
 class OrdersController < ApplicationController
+
+	before_action :authenticate_user!
+
 	def index
 		if current_user
 			@orders = Order.all.where(placed_by: current_user.email)
@@ -41,6 +44,12 @@ class OrdersController < ApplicationController
 		else
 			redirect_to products_path, notice: 'Something went wrong, please contact the team'
 		end
+	end
+
+	def destroy
+		order = Order.find(params[:id])
+		order.destroy
+		redirect_to orders_path, notice: 'Order was successfully destroyed.'
 	end
 
 	def confirm

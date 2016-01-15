@@ -30,7 +30,13 @@
 		<div class="col-md-8">
 		</div>
 		<div class="col-md-4">
+			<% if user_signed_in? %>
 			<%= link_to "Checkout", addresses_path, class: "btn btn-primary" %>
+			<% else %>
+			<div class="alert alert-warning" role="alert">
+  				Sign in to Checkout!
+			</div>
+			<% end %>
 		</div>
 	</div>
 </div>
