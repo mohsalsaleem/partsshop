@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -15,7 +16,6 @@
   		<ul class="nav navbar-nav pull-xs-right">
   			<li class="nav-item "><%= link_to "Cart", cart_items_path, class: "nav-link" %></li>
 	      	<% if user_signed_in? %>
-	      	<li class="nav-item "><%= link_to "Orders", orders_path, class: "nav-link" %></li>
 	        <li class="nav-item "><%= link_to "Edit Password", edit_user_registration_path, class: "nav-link" %></li>
 	        <li class="nav-item "><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %>
 	        <% elsif admin_signed_in? %>
@@ -40,4 +40,10 @@
 		</div>
 	</div>
 </body>
+<footer class="footer">
+	<div class="container">
+		<p class="text-muted">Parts Shop &copy</i>
+		</p>
+	</div>
+</footer>
 </html>

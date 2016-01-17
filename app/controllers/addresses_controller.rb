@@ -6,7 +6,7 @@ class AddressesController < ApplicationController
   # GET /addresses.json
   def index
     user = current_user
-    @addresses = user.addresses
+    @addresses = user.addresses.paginate(:page => params[:page])
   end
 
   # GET /addresses/1

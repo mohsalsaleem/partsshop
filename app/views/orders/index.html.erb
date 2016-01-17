@@ -1,6 +1,7 @@
 <div class="container">
 	<div class="row">
 	<% if @order %>
+	<div class="table-responsive">
 		<table class="table">
 			<thead>
 				<tr>
@@ -36,6 +37,9 @@
 			<% end %>
 			</tbody>
 		</table>
+		</div>
+		<div>
+		<center><%= will_paginate @orders %></center>
 		<% else %>
 			<center><p> No order Yet </p></center>
 		<% end %>

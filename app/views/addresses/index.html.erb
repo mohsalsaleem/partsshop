@@ -5,6 +5,7 @@
 <h2> Choose an address </h2>
 <% if @addresses %>
 <p>Your Addresses<p>
+<div class="table-responsive">
 <table class="table">
   <thead>
     <tr>
@@ -24,11 +25,15 @@
         <td><%= link_to 'Show', address %></td>
         <td><%= link_to 'Edit', edit_address_path(address) %></td>
         <td><%= link_to 'Destroy', address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Choose', review_order_items_path(address_id: address.id) %>
+        <td><%= link_to 'Choose', review_order_items_path(address_id: address.id) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
+<div>
+  <center><%= will_paginate @posts %></center>
+</div>
 <% else %>
   <h2>Please add an address</h2>
 <% end %>
