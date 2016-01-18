@@ -22,8 +22,7 @@ $(document).ready(function(){
  }
  $.get('/cart/count',function(data, status){
 
-
- 	// console.log(data['count'])
+	 console.log(data['count'])
 
  	// items = $('td#item_quantity');
  	// total_quantity = 0
