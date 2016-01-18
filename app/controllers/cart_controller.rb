@@ -45,6 +45,17 @@ class CartController < ApplicationController
 	print JSON.parse cookies[:cart_items]
   	render nothing: true
   end
+  
   def count
+    if cookies[:cart_items]
+      items = JSON.parse cookies[:cart_items]
+      quantity = 0
+      items.each do |item,value|
+        quantity += value
+      end
+      render json: { count: quantity }
+    else
+      render json: { count: 0 }
+    end
   end
 end

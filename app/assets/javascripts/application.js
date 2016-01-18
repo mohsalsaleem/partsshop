@@ -15,8 +15,23 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+
 $(document).ready(function(){
 	if(navigator.userAgent.match(/Android/i)){
     window.scrollTo(0,1);
  }
+ $.get('/cart/count',function(data, status){
+
+
+ 	// console.log(data['count'])
+
+ 	// items = $('td#item_quantity');
+ 	// total_quantity = 0
+ 	// for(var i = 0;i < items.length; i++)
+ 	// {	
+ 	// 	total_quantity += parseInt(items[i].textContent)
+ 	// }
+  $("#cart_counter").text('Cart ('+data['count']+')');	
+ })
+ 
 })
