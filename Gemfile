@@ -6,6 +6,7 @@ gem 'bootstrap', '~> 4.0.0.alpha3'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
+gem 'jquery-turbolinks'
 gem 'will_paginate', '~> 3.0.6'
 gem "paperclip", "~> 4.3"
 gem 'simple_form'
