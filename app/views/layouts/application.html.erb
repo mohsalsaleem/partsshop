@@ -20,7 +20,7 @@
         <li ><%= link_to "Products", products_path %></li>
 		<li >
 		<%= link_to cart_items_path do %>
-			Cart <span class="badge" id: "cart_counter" style="color:black">1</span>
+			Cart <span class="badge" id="cart_counter" style="color:black"></span>
 		<% end %>
 		</li>
 	  	<% if user_signed_in? %>
@@ -39,7 +39,7 @@
         <li ><%= link_to "Products", products_path %></li>
 		<li >
 			<%= link_to cart_items_path do %>
-				Cart <span class="badge" id: "cart_counter" style="color:black">1</span>
+				Cart <span class="badge" id="cart_counter" style="color:black">1</span>
 			<% end %>
 		</li>
 	  	<% if user_signed_in? %>
