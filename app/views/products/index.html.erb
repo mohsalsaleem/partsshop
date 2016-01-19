@@ -23,6 +23,10 @@
                   <i class="material-icons" title="Add to Cart">add</i>
                 <% end %>
               </div>
+              <% if admin_signed_in? %>
+                  <%= link_to "Edit", edit_product_path(product) %>
+                  <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
           </div>
         </div>
       </div>
