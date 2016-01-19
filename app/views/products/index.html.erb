@@ -1,15 +1,13 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
   <div class="row">
-    <!-- <div class="col-lg-12"> -->
       <% @products.each_with_index do |product, index| %>
-          <!-- <div class="row"> -->
           <div class="col-lg-3 col-md-6 col-sm-12">
             <div class="card">
               <div class="card-block">
                 <%= image_tag product.image.url(:medium), class: "card-img-top img-responsive", size: "210x150" %>
                 <h4 class="card-title"><%= product.name %></h4>
-                <p class="card-text"><%= product.description %></p>
+                <p class="card-text"><%= truncate(product.description, length: 20) %></p>
                 <%= link_to "Add to cart", cart_add_path( id:  product.id ), remote: true, class: "btn btn-primary btn-lg btn-sm btn-md" %>
                 <%= link_to "Show", product, class: "btn btn-success btn-sm btn-md btn-lg" %><br/><br/>
                 <% if admin_signed_in? %>
@@ -22,9 +20,7 @@
               </ul>
             </div>
           </div>
-        <!-- </div> -->
       <% end %>
-    <!-- </div> -->
   </div>
   <div class="row">
     <center><%= will_paginate @products %></center>
