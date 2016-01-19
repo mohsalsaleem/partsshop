@@ -37,7 +37,11 @@
       </ul>
       <ul class="side-nav" id="mobile-demo">
         <li ><%= link_to "Products", products_path %></li>
-		<li ><%= link_to "Cart", cart_items_path, id: "cart_counter" %></li>
+		<li >
+			<%= link_to cart_items_path do %>
+				Cart <span class="badge" id: "cart_counter" style="color:black">1</span>
+			<% end %>
+		</li>
 	  	<% if user_signed_in? %>
 	  	<li ><%= link_to "My Orders", orders_path %></li>
 	    <li ><%= link_to "Edit Password", edit_user_registration_path %></li>
