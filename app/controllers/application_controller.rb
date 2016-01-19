@@ -13,5 +13,13 @@ class ApplicationController < ActionController::Base
 			
 		puts "Controller Name: #{params[:controller]}"+"\tAction Name: #{params[:action]}"
 	end
+   	
+   	def authenticate_anyone?
+   		if !user_signed_in? and !admin_signed_in?
+   			authenticate_user!
+   		else
+   			true
+   		end
 
+   	end		
 end

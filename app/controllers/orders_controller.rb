@@ -1,13 +1,19 @@
 require 'json'
 class OrdersController < ApplicationController
 
-	before_action :authenticate_user!
+	before_action :authenticate_anyone?
 
 	def index
 		if current_user
 			@orders = Order.all.paginate(page: params[:page], per_page: 10).where(placed_by: current_user.email)
 		elsif current_admin
 			@orders = Order.all.paginate(page: params[:page], per_page: 10)
+		end
+	end
+
+	def archived_orders
+		if current_admin
+			@orders = Order.all.where(archived: true).paginate(page: params[:page], per_page: 10)
 		end
 	end
 
@@ -47,15 +53,35 @@ class OrdersController < ApplicationController
 	end
 
 	def destroy
-		order = Order.find(params[:id])
+		order = Order.find(params[:order_id])
 		order.destroy
 		redirect_to orders_path, notice: 'Order was successfully destroyed.'
 	end
 
+	def archive
+		order = Order.find(params[:order_id])
+		if order.update(archived: true)
+			redirect_to orders_path, notice: 'Order was successfully archived'
+		else
+			redirect_to order_id, notice: 'Something went wrong'
+		end
+	end
+
+	def dispatch_order
+		order = Order.find(params[:order_id])
+		if order.update(dispatched: true)
+			redirect_to orders_path, notice: 'Order was successfully dispatched'
+		else
+			redirect_to order_id, notice: 'Something went wrong'
+		end
+	end
+
 	def confirm
-		print params[:order_id]
-		Order.find(params[:order_id]).update(status: true)
-		render nothing: true
+		if Order.find(params[:order_id]).update(status: true)
+			redirect_to orders_path, notice: "Order was updated"
+		else
+			redirect_to order_path, notice: "Something went wrong"
+		end
 	end
 	def deny
 		Order.find(params[:order_id]).update(status: false)

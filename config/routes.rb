@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  get 'orders/archived_orders' => 'orders#archived_orders'
   resources :orders do
     get 'confirm'
     get 'deny'
+    get 'archive'
+    get 'dispatch_order'
   end
   get 'review/order_items'
 
