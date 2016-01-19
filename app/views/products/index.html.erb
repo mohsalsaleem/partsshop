@@ -1,4 +1,9 @@
+
 <div class="container">
+  <br>
+  <% if admin_signed_in? %>
+  <%= link_to 'New Product', new_product_path, class: "waves-effect waves-light btn-large" %>
+  <% end %>
   <div class="row">
     <% @products.each do |product| %>
       <div class="col l4 m6 s12">
@@ -19,29 +24,31 @@
                 <%= link_to "Show", product, class: "waves-effect waves-light btn" %>
               </div>
               <div class="left">
-                <%= link_to cart_add_path( id:  product.id ),remote: true, class: "btn-floating btn-large waves-effect waves-light red" do %>
+                <%= link_to cart_add_path( id:  product.id ),remote: true, class: "btn-floating btn waves-effect waves-light red" do %>
                   <i class="material-icons" title="Add to Cart">add</i>
                 <% end %>
               </div>
-              <% if admin_signed_in? %>
-                  <%= link_to "Edit", edit_product_path(product) %>
-                  <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
-              <% end %>
-          </div>
+          </div><!-- 
+          <div class="card-action">
+            <% if admin_signed_in? %>
+              <div class="right">
+                <%= link_to "Edit", edit_product_path(product), class: "waves-effect waves-light btn"  %>
+              </div>
+              <div class="left">
+                <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: "waves-effect waves-light btn"  %>
+              </div>
+            <% end %>
+          </div> -->
         </div>
       </div>
     <% end %>
   </div>
+  <div class="row">
+    <center><%= will_paginate @products %></center>
+  </div>
 </div>
 
-
-
-
-
-<!--
-
-
-
+<!-- 
 <p id="notice"><%= notice %></p>
 <div class="container">
   <div class="row">
@@ -75,4 +82,4 @@
 <% if admin_signed_in? %>
 <%= link_to 'New Product', new_product_path %>
 <% end %>
---!>
+ -->
