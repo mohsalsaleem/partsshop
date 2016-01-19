@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
 		if current_user
 			@orders = Order.all.paginate(page: params[:page], per_page: 10).where(placed_by: current_user.email)
 		elsif current_admin
-			@orders = Order.all.paginate(page: params[:page], per_page: 10)
+			@orders = Order.all.where(archived: false).paginate(page: params[:page], per_page: 10)
 		end
 	end
 
