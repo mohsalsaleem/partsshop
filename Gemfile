@@ -7,6 +7,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
 
+gem 'materialize-sass'
 gem 'faker'
 gem 'jquery-turbolinks'
 gem 'will_paginate', '~> 3.0.6'

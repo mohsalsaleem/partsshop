@@ -12,18 +12,21 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require materialize-sprockets
 //= require jquery.turbolinks
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
 
 $(document).ready(function(){
+	$(".button-collapse").sideNav()
+
 	if(navigator.userAgent.match(/Android/i)){
     window.scrollTo(0,1);
  }
  $.get('/cart/count',function(data, status){
-
-  $("#cart_counter").text('Cart ('+data['count']+')');	
+ 	console.log($("#cart_counter"))
+  $("#cart_counter").text(data['count']);	
  });
  
 })

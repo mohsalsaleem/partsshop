@@ -1,3 +1,43 @@
+<div class="container">
+  <div class="row">
+    <% @products.each do |product| %>
+      <div class="col l4 m6 s12">
+        <div class="card red lighten-4">
+          <div class="card-image">
+            <%= image_tag product.image.url(:medium), size: "210x150" %>
+          </div>
+          <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4" style="font-size:18px"><%= product.name %><i class="material-icons right">more_vert</i></span>
+          <p>Price: <%= product.price %></p>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><%= product.name %><i class="material-icons right">close</i></span>
+            <p><%= product.description %></p>
+          </div>
+          <div class="card-action">
+              <div class="right">
+                <%= link_to "Show", product, class: "waves-effect waves-light btn" %>
+              </div>
+              <div class="left">
+                <%= link_to cart_add_path( id:  product.id ),remote: true, class: "btn-floating btn-large waves-effect waves-light red" do %>
+                  <i class="material-icons" title="Add to Cart">add</i>
+                <% end %>
+              </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+<!--
+
+
+
 <p id="notice"><%= notice %></p>
 <div class="container">
   <div class="row">
@@ -31,3 +71,4 @@
 <% if admin_signed_in? %>
 <%= link_to 'New Product', new_product_path %>
 <% end %>
+--!>
