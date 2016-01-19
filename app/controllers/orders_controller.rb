@@ -5,15 +5,15 @@ class OrdersController < ApplicationController
 
 	def index
 		if current_user
-			@orders = Order.all.paginate(page: params[:page], per_page: 10).where(placed_by: current_user.email)
+			@orders = Order.all.where(placed_by: current_user.email).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
 		elsif current_admin
-			@orders = Order.all.where(archived: false).paginate(page: params[:page], per_page: 10)
+			@orders = Order.all.where(archived: false).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
 		end
 	end
 
 	def archived_orders
 		if current_admin
-			@orders = Order.all.where(archived: true).paginate(page: params[:page], per_page: 10)
+			@orders = Order.all.where(archived: true).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
 		end
 	end
 
@@ -84,7 +84,10 @@ class OrdersController < ApplicationController
 		end
 	end
 	def deny
-		Order.find(params[:order_id]).update(status: false)
-		render nothing: true
+		if Order.find(params[:order_id]).update(status: false)
+			redirect_to orders_path, notice: "Order was denied"
+		else
+			redirect_to order_path, notice: "Something went wrong"
+		end
 	end
 end
