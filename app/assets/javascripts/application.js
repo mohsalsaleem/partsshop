@@ -19,11 +19,20 @@
 //= require_tree .
 //= require bootstrap-sprockets
 
+if(document.readyState == "loading")
+{
+	console.log("loading...")
+	$('div.root').hide();
+	$('#root').show();
 
 
+}
 
 var ready = function() {
     // do stuff here.
+	$('div#root').hide();
+	$('div.root').show();
+
     $(".button-collapse").sideNav()
 
 	if(navigator.userAgent.match(/Android/i)){
@@ -48,27 +57,3 @@ var ready = function() {
 
 $(document).ready(ready);
 $(document).on('page:change', ready);
-
-
-
-
-
-
-// $(document).ready(function(){
-// 	$(".button-collapse").sideNav()
-
-// 	if(navigator.userAgent.match(/Android/i)){
-//     window.scrollTo(0,1);
-//  }
-// 	 $.get('/cart/count',function(data, status){
-// 	  $("#cart_counter").text(data['count']);
-// 	 });
-
-
-//   $('#add_to_cart').click(function() {
-// 		console.log("saleem");
-// 		var value = $("#cart_counter").text();
-// 		$("#cart_counter").text(value);
-// 	});
- 
-// })
