@@ -11,8 +11,11 @@ $(document).on "page:change", ->
   	#	alert(product_id)
   	#	console.log($('input#product_id_'+product_id).val())
   		quantity = $('input#product_id_'+product_id).val()
-  		console.log("Saleem")
+  	#	console.log("Saleem")
   		$.ajax '/cart/decrement_count?product_id='+product_id+'&quantity='+quantity,
   			type: 'GET',
   			success: ->
-  				location.reload();
+          toastContent = $('<span>Updated!</span>');
+          Materialize.toast(toastContent, 3000);
+          location.reload();
+
