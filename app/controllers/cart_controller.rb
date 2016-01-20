@@ -19,8 +19,8 @@ class CartController < ApplicationController
     	@total_price = 0
     	products.each do |product|
     		if items.has_key?(product.id.to_s)
-    			@cart_items[product.id.to_s] = [product.name,items[product.id.to_s],product.price]
-    			@total_price += product.price
+    			@cart_items[product.id.to_s] = [product.name,items[product.id.to_s],product.price*items[product.id.to_s]]
+    			@total_price += product.price*items[product.id.to_s]
     		end
     	end
     else

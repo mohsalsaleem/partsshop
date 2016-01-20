@@ -31,8 +31,9 @@ class OrdersController < ApplicationController
 	  	@total_price = 0
 	  	products.each do |product|
 	  		if items.has_key?(product.id.to_s)
-	  			@order_items[product.id.to_s] = [product.name,items[product.id.to_s],product.price]
-	  			@total_price += product.price
+	  			@order_items[product.id.to_s] = [product.name,items[product.id.to_s],product.price*items[product.id.to_s].to_i]
+	  			@total_price += product.price*items[product.id.to_s].to_i
+	  			# puts items[product.id.to_s].class
 	  		end
 	  	end
 	end
@@ -46,7 +47,7 @@ class OrdersController < ApplicationController
 		order = Order.new(placed_by: current_user.email, shipping_to: shipping_to, order_items: items)
 		if order.save
 			cookies[:cart_items] = JSON. generate({})
-			redirect_to order, notice: 'Order was successfully places'
+			redirect_to order, notice: 'Order was successfully placed'
 		else
 			redirect_to products_path, notice: 'Something went wrong, please contact the team'
 		end
@@ -78,7 +79,7 @@ class OrdersController < ApplicationController
 
 	def confirm
 		if Order.find(params[:order_id]).update(status: true)
-			redirect_to orders_path, notice: "Order was updated"
+			redirect_to orders_path, notice: "Order was confirmed"
 		else
 			redirect_to order_path, notice: "Something went wrong"
 		end
