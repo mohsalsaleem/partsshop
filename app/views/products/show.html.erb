@@ -1,4 +1,26 @@
-<p><%= image_tag @product.image.url(:medium), size: "210x150" %></p>
+<div class="container">
+	<div class="row">
+	</div>
+	<div class="row">
+		<div class="col l4 m6 s12 pull-l1">
+			<%= image_tag @product.image.url(:large), size: "350x220" %>
+		</div>
+		<div class="col l8 m6 s12">	
+	      <ul class="collection with-header">
+	        <li class="collection-header"><h4><%= @product.name %></h4></li>
+	        <li class="collection-item"><p><%= @product.description %></p></li>
+	        <li class="collection-item"><h5>Price: <%= @product.price %></h5></li>
+	        <li class="collection-item"><%= link_to "Add to cart", cart_add_path( id:  @product.id ), remote: true, class: "waves-effect waves-light btn-large" %></li>
+	      </ul>
+		</div>
+	</div>
+</div>
+
+
+<!-- 
+
+
+<p><%= image_tag @product.image.url(:large) %></p>
 <p>
   <strong>Name:</strong>
   <%= @product.name %>
@@ -18,3 +40,4 @@
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
 <% end %>
+ -->

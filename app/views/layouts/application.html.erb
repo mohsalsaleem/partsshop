@@ -11,7 +11,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="root">
+<div class="navbar-fixed">
    <nav>
     <div class="nav-wrapper">
       <a href="#!" class="brand-logo">Demo</a>
@@ -56,6 +56,7 @@
       </ul>
     </div>
   </nav>
+ </div>
   <% if notice %>
   	<script type="text/javascript">Materialize.toast('<%= notice %>', 3000)</script>
   <% end %>
@@ -63,17 +64,6 @@
   	<script type="text/javascript">Materialize.toast('<%= alert %>', 3000)</script>
   <% end %>
   <%= yield %>
-</div>
-<div class="preloader-wrapper big active" id="root">
-      <div class="spinner-layer spinner-blue">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div><div class="gap-patch">
-          <div class="circle"></div>
-        </div><div class="circle-clipper right">
-          <div class="circle"></div>
-        </div>
-      </div>
 </body>
 <footer class="footer">
 	<div class="container">

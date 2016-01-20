@@ -21,17 +21,12 @@
 
 if(document.readyState == "loading")
 {
-	console.log("loading...")
-	$('div.root').hide();
-	$('div#root').show();
 
 
 }
 
 var ready = function() {
     // do stuff here.
-	$('div#root').hide();
-	$('div.root').show();
 
     $(".button-collapse").sideNav()
 
