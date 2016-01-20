@@ -14,8 +14,17 @@ $(document).on "page:change", ->
   	#	console.log("Saleem")
   		$.ajax '/cart/decrement_count?product_id='+product_id+'&quantity='+quantity,
   			type: 'GET',
-  			success: ->
-          toastContent = $('<span>Updated!</span>');
-          Materialize.toast(toastContent, 3000);
-          location.reload();
+  			success: (data) ->
+          if data['notice'] is 1
+            toastContent = $('<span>Updating...!</span>');
+            Materialize.toast(toastContent, 3000);
+            location.reload();
+            location.reload();# Do it Twice..
+          else if data['notice'] is 0
+            toastContent = $('<span>Removing...!</span>');
+            Materialize.toast(toastContent, 3000);
+            location.reload();
+            location.reload();# Do it Twice..
+            location.reload();
+
 

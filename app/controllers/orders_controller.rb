@@ -31,8 +31,10 @@ class OrdersController < ApplicationController
 	  	@total_price = 0
 	  	products.each do |product|
 	  		if items.has_key?(product.id.to_s)
-	  			@order_items[product.id.to_s] = [product.name,items[product.id.to_s],product.price*items[product.id.to_s].to_i]
-	  			@total_price += product.price*items[product.id.to_s].to_i
+	  			if items[product.id.to_s].to_i > 0
+		  			@order_items[product.id.to_s] = [product.name,items[product.id.to_s],product.price*items[product.id.to_s].to_i]
+		  			@total_price += product.price*items[product.id.to_s].to_i
+		  		end
 	  			# puts items[product.id.to_s].class
 	  		end
 	  	end
