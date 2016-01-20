@@ -13,22 +13,62 @@
 //= require jquery
 //= require jquery_ujs
 //= require materialize-sprockets
+//= require cart
 //= require jquery.turbolinks
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
 
-$(document).ready(function(){
-	$(".button-collapse").sideNav()
+
+
+
+var ready = function() {
+    // do stuff here.
+    $(".button-collapse").sideNav()
 
 	if(navigator.userAgent.match(/Android/i)){
     window.scrollTo(0,1);
- }
- $.get('/cart/count',function(data, status){
- 	console.log($("#cart_counter"))
-  $("#cart_counter").text(data['count']);
-  console.log($('#cart_counter_mobile_nav').text());
-  // $('#cart_counter_mobile_nav').text(data['counter']);	
- });
+ 	}
+
+	 $.get('/cart/count',function(data, status){
+	  $("#cart_counter").text(data['count']);
+	 });
+
+   $('#add_to_cart').click(function() {
+		// var value = $("#cart_counter").text();
+		// var int_value = parseInt(value)
+		// int_value += 1
+		// $("#cart_counter").text(int_value);
+		$.get('/cart/count',function(data, status){
+	  		$("#cart_counter").text(data['count']);
+	 });
+	});
  
-})
+};
+
+$(document).ready(ready);
+$(document).on('page:change', ready);
+
+
+
+
+
+
+// $(document).ready(function(){
+// 	$(".button-collapse").sideNav()
+
+// 	if(navigator.userAgent.match(/Android/i)){
+//     window.scrollTo(0,1);
+//  }
+// 	 $.get('/cart/count',function(data, status){
+// 	  $("#cart_counter").text(data['count']);
+// 	 });
+
+
+//   $('#add_to_cart').click(function() {
+// 		console.log("saleem");
+// 		var value = $("#cart_counter").text();
+// 		$("#cart_counter").text(value);
+// 	});
+ 
+// })

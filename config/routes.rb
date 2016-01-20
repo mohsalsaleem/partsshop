@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'cart/items'
   get 'cart/add'
   get 'cart/count'
+  get 'cart/decrement_count'
 
   resources :products
   get 'welcome/index'

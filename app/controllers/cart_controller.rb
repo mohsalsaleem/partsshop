@@ -19,16 +19,30 @@ class CartController < ApplicationController
     	@total_price = 0
     	products.each do |product|
     		if items.has_key?(product.id.to_s)
-    			@cart_items[product.id.to_s] = [product.name,items[product.id.to_s],product.price*items[product.id.to_s]]
+    			@cart_items[product.id.to_s] = [product.name,items[product.id.to_s],product.price*items[product.id.to_s],product.id]
     			@total_price += product.price*items[product.id.to_s]
     		end
     	end
     else
       @cart_items = {}
     end
-  	print @cart_items
+  	# print @cart_items
 
   end
+
+  def decrement_count
+    puts params 
+    existing =  JSON.parse(cookies[:cart_items])
+    print existing
+    print "\n"
+    if existing[params[:product_id]]
+      existing[params[:product_id]] = params[:quantity].to_i
+      cookies[:cart_items] = JSON.generate(existing)
+      print cookies[:cart_items]
+      redirect_to cart_items_path, notice: "Cart Updated"
+    end
+  end
+
   def add
  		if cookies[:cart_items]
  			existing = JSON.parse(cookies[:cart_items])

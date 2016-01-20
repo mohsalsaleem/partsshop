@@ -14,7 +14,7 @@
 				<% @cart_items.each do |cart_item| %>
 					<tr>
 						<td><%= cart_item[1][0] %></td>
-						<td id="item_quantity"><%= cart_item[1][1] %></td>
+						<td id="item_quantity"><input type='text' value="<%= cart_item[1][1] %>" id="product_id_<%= cart_item[1][3] %>" maxlength="4" size="4"><a data-id="update" class="waves-effect waves-light btn" id="product_id_<%= cart_item[1][3] %>" >Update</a></td>
 						<td><%= cart_item[1][2] %></td>
 					</tr>
 				<% end %>
