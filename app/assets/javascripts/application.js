@@ -23,7 +23,7 @@ if(document.readyState == "loading")
 {
 	console.log("loading...")
 	$('div.root').hide();
-	$('#root').show();
+	$('div#root').show();
 
 
 }
