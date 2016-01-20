@@ -26,7 +26,9 @@ $(document).ready(function(){
  }
  $.get('/cart/count',function(data, status){
  	console.log($("#cart_counter"))
-  $("#cart_counter").text(data['count']);	
+  $("#cart_counter").text(data['count']);
+  console.log($('#cart_counter_mobile_nav').text());
+  // $('#cart_counter_mobile_nav').text(data['counter']);	
  });
  
 })

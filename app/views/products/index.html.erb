@@ -19,7 +19,7 @@
                 <%= link_to "Show", product, class: "waves-effect waves-light btn" %>
               </div>
               <div class="left">
-                <%= link_to cart_add_path( id:  product.id ),remote: true, class: "btn-floating btn-large waves-effect waves-light red" do %>
+                <%= link_to cart_add_path( id:  product.id ),remote: true, class: "btn-floating btn-large waves-effect waves-light red", onclick: "Materialize.toast('Added to cart', 4000)" do %>
                   <i class="material-icons" title="Add to Cart">add</i>
                 <% end %>
               </div>

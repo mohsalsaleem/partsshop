@@ -1,5 +1,7 @@
 <%= simple_form_for(@product) do |f| %>
-  <%= f.error_notification %>
+  <% if f.error_notification %>
+    <script type="text/javascript">Materialize.toast(' <%= f.error_notification %>', 3000, 'rounded')</script>
+  <% end %>
 
   <div class="form-inputs">
     <%= f.input :name %>
