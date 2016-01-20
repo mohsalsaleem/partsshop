@@ -14,6 +14,44 @@
 	      </ul>
 		</div>
 	</div>
+	<div class="row">
+    <div class="col l12 s12">
+      <ul class="tabs">
+        <li class="tab col s3"><a class="active" href="#reviews">Review</a></li>
+        <li class="tab col s3"><a href="#specifications">Specification</a></li>
+      </ul>
+    </div>
+    <div id="reviews" class="col l12 md12 s12">
+	    <% if user_signed_in? %>
+	    <div class="container">
+		    <div class="row">
+		    	<%= render 'product_reviews/form' %>
+		    </div>
+	    </div>
+	    <% end %>
+    	<div class="row">
+    	<% @reviews.each do |review| %>
+		<ul class="collection">
+			    <li class="collection-item avatar">
+			    <i class="material-icons circle green">insert_chart</i>
+			      <span class="title"><%= review.user_name %></span>
+			      <p>
+			      	<%= review.review %>
+			      </p>
+			      <p class="secondary-content"><%= review.rating %></p>
+			    </li>      
+		</ul>
+		<% end %>
+    	</div>
+    </div>
+    <div id="specifications" class="col s12">
+    	<div class="row">
+	    	<p>
+	    		And this is for specifications
+	    	</p>
+    	</div>
+    </div>
+  </div> 
 </div>
 
 

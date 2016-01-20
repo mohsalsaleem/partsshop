@@ -1,3 +1,4 @@
+
 <div class="container">
 	<% if admin_signed_in? %>
 	<div class="row">
@@ -15,8 +16,7 @@
 	<br/>
 	<div class="row">
 	<% if !@orders.empty? %>
-	<div class="table-responsive">
-		<table class="table">
+		<table class="striped responsive-table">
 			<thead>
 				<tr>
 					<th>Placed By</th>
@@ -55,11 +55,50 @@
 			<% end %>
 			</tbody>
 		</table>
-		</div>
-		<div>
 		<center><%= will_paginate @orders %></center>
-		<% else %>
-			<center><p> No order Yet </p></center>
-		<% end %>
+	<% else %>
+		<center><p> No order Yet </p></center>
+	<% end %>
+	</div>		
+</div>
+
+
+<!-- <div class="container">
+	<div class="row">
+		<ul class="collection">
+		    <li class="collection-item avatar">
+		      <img src="images/yuna.jpg" alt="" class="circle">
+		      <span class="title">Title</span>
+		      <p>First Line <br>
+		         Second Line
+		      </p>
+		      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+		    </li>
+		    <li class="collection-item avatar">
+		      <i class="material-icons circle">folder</i>
+		      <span class="title">Title</span>
+		      <p>First Line <br>
+		         Second Line
+		      </p>
+		      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+		    </li>
+		    <li class="collection-item avatar">
+		      <i class="material-icons circle green">insert_chart</i>
+		      <span class="title">Title</span>
+		      <p>First Line <br>
+		         Second Line
+		      </p>
+		      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+		    </li>
+		    <li class="collection-item avatar">
+		      <i class="material-icons circle red">play_arrow</i>
+		      <span class="title">Title</span>
+		      <p>First Line <br>
+		         Second Line
+		      </p>
+		      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+		    </li>
+		</ul>
 	</div>
 </div>
+ -->

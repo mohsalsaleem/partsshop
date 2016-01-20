@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :product_reviews
   get 'orders/archived_orders' => 'orders#archived_orders'
   resources :orders do
     get 'confirm'

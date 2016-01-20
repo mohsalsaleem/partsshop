@@ -29,6 +29,8 @@ var ready = function() {
     // do stuff here.
 
     $(".button-collapse").sideNav()
+    
+    $('ul.tabs').tabs();
 
 	if(navigator.userAgent.match(/Android/i)){
     window.scrollTo(0,1);
