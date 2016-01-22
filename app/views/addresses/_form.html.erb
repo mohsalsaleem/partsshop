@@ -1,4 +1,4 @@
-<%= simple_form_for(@address) do |f| %>
+<%= simple_form_for(@address, remote: true) do |f| %>
   <% if f.error_notification %>
     <script type="text/javascript">Materialize.toast(' <%= f.error_notification %>', 3000, 'rounded')</script>
   <% end %>

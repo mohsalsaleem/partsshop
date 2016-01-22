@@ -39,16 +39,16 @@ var ready = function() {
 	 $.get('/cart/count',function(data, status){
 	  $("#cart_counter").text(data['count']);
 	 });
-
-   $('#add_to_cart').click(function() {
-		// var value = $("#cart_counter").text();
-		// var int_value = parseInt(value)
-		// int_value += 1
-		// $("#cart_counter").text(int_value);
-		$.get('/cart/count',function(data, status){
-	  		$("#cart_counter").text(data['count']);
-	 });
-	});
+	 
+ //   $('#add_to_cart').click(function() {
+	// 	// var value = $("#cart_counter").text();
+	// 	// var int_value = parseInt(value)
+	// 	// int_value += 1
+	// 	// $("#cart_counter").text(int_value);
+	// 	$.get('/cart/count',function(data, status){
+	//   		$("#cart_counter").text(data['count']);
+	//  });
+	// });
  
 };
 
