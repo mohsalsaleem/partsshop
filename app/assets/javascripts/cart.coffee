@@ -3,7 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on "page:change", ->
-	console.log("Saleem")
 	$('a[data-id="update"]').click ->
   	#	console.log($(this).attr('id'))
   		product_id_attr_value = $(this).attr('id')

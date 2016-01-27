@@ -28,6 +28,8 @@ if(document.readyState == "loading")
 var ready = function() {
     // do stuff here.
 
+    // $('.modal-trigger').leanModal();
+
     $(".button-collapse").sideNav()
     
     $('ul.tabs').tabs();
@@ -39,7 +41,25 @@ var ready = function() {
 	 $.get('/cart/count',function(data, status){
 	  $("#cart_counter").text(data['count']);
 	 });
-	 
+	
+	$('a#open_cart').click(function(){
+		$('#cart_items').openModal();
+
+		$.get('cart/items', function(data,status){
+			// console.log("Saleem");
+			// $('div.modal-content').append('<h4>'+data['data']+'</h4>');
+			$.each(data['data'],function(key,value){
+				$('div.modal-content').append('<h5>'+key+': '+ value+'</h5>');
+			});
+		});
+	});
+
+	$('a#close_cart').click(function(){
+		$('#cart_items').closeModal();
+		$('.lean-overlay').hide();
+	});
+
+
  //   $('#add_to_cart').click(function() {
 	// 	// var value = $("#cart_counter").text();
 	// 	// var int_value = parseInt(value)

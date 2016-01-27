@@ -19,10 +19,14 @@
       <ul class="right hide-on-med-and-down">
         <li ><%= link_to "Products", products_path %></li>
 		<li >
+		<!-- 
 		<%= link_to cart_items_path do %>
-			<!-- Cart <span class="badge" id="cart_counter" style="color:black"></span> -->
 			Cart <span class="badge" style="color:black"></span>
 		<% end %>
+ -->
+		<a class="modal-trigger" href="#cart_items" id="open_cart">Cart</a>
+			<!-- Cart <span class="badge" id="cart_counter" style="color:black"></span> -->
+			<!-- Cart <span class="badge" style="color:black"></span> -->
 		</li>
 	  	<% if user_signed_in? %>
 	  	<li ><%= link_to "My Orders", orders_path %></li>
@@ -71,7 +75,7 @@
   		<p>A bunch of text</p>
   	</div>
   	<div class="modal-footer">
-  		<h5> Footer </h5>
+  		<a id="close_cart">Close</a>
   	</div>
   </div>
 </body>

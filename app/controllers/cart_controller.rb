@@ -28,7 +28,12 @@ class CartController < ApplicationController
     else
       @cart_items = {}
     end
-  	 print @cart_items
+  	 print @cart_items.to_json
+    # render json: {data: "0"} 
+     respond_to do |format|
+      format.json { render json: { data: @cart_items.to_json } }
+      format.html { render :items }
+     end
 
   end
 
