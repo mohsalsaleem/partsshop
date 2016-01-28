@@ -120,6 +120,7 @@ GEM
     multi_json (1.11.2)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    nprogress-rails (0.1.6.7)
     orm_adapter (0.5.0)
     paperclip (4.3.2)
       activemodel (>= 3.2.0)
@@ -249,6 +250,7 @@ DEPENDENCIES
   jquery-turbolinks
   letter_opener
   materialize-sass
+  nprogress-rails
   paperclip (~> 4.3)
   pg (~> 0.15)
   rails (= 4.2.5.1)

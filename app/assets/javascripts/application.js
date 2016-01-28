@@ -17,6 +17,14 @@
 //= require jquery.turbolinks
 //= require turbolinks
 //= require_tree .
+//= require nprogress
+//= require nprogress-turbolinks
+
+NProgress.configure({
+  showSpinner: true,
+  ease: 'ease',
+  speed: 500
+});
 
 if(document.readyState == "loading")
 {
