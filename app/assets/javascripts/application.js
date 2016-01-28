@@ -20,17 +20,17 @@
 //= require nprogress
 //= require nprogress-turbolinks
 
+Turbolinks.enableProgressBar();
+
 NProgress.configure({
   showSpinner: true,
   ease: 'ease',
   speed: 500
 });
 
-if(document.readyState == "loading")
-{
-
-
-}
+$(document).on('page:fetch',   function() { NProgress.start(); });
+$(document).on('page:change',  function() { NProgress.done(); });
+$(document).on('page:restore', function() { NProgress.remove(); });
 
 var ready = function() {
     // do stuff here.
