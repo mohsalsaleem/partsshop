@@ -17,7 +17,6 @@
 //= require jquery.turbolinks
 //= require turbolinks
 //= require_tree .
-//= require bootstrap-sprockets
 
 if(document.readyState == "loading")
 {
