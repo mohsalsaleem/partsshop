@@ -1,3 +1,19 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@media #{$medium-and-up} {
+	// styles for med and up
+	div.cards {
+		padding-top: 200px;
+		padding-bottom: 370px;
+	}
+  }
+
+@media #{$small-and-down} {
+    // styles for small screens and down
+	div.cards {
+		padding-top: 70px;
+		padding-bottom: 370px;
+	}
+  }

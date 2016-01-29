@@ -11,58 +11,58 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="navbar-fixed">
-   <nav>
-    <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">Demo</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li ><%= link_to "Products", products_path %></li>
-		<li >
-		
-		<%= link_to cart_items_path do %>
-			Cart <span class="badge" style="color:black"></span>
-		<% end %>
-
-		<!-- <a class="modal-trigger" href="#cart_items" id="open_cart">Cart</a> -->
-			<!-- Cart <span class="badge" id="cart_counter" style="color:black"></span> -->
-			<!-- Cart <span class="badge" style="color:black"></span> -->
-		</li>
-	  	<% if user_signed_in? %>
-	  	<li ><%= link_to "My Orders", orders_path %></li>
-	    <li ><%= link_to "Edit Password", edit_user_registration_path %></li>
-	    <li ><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-	    <% elsif admin_signed_in? %>
-	    <li ><%= link_to "Orders", orders_path %></li>
-	    <li ><%= link_to "Sign Out", destroy_admin_session_path, method: :delete %></li>
-	    <% else %>
-	  	<li ><%= link_to "Sign In", new_user_session_path %></li>
-	    <li ><%= link_to "Register", new_user_registration_path %></li>
-	    <% end %>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-        <li ><%= link_to "Products", products_path %></li>
-		<li >
-			<%= link_to cart_items_path do %>
-				Cart <span class="badge" id="cart_counter_mobile_nav" style="color:black"></span>
-			<% end %>
-			<!-- <a class="modal-trigger" href="#cart_items" id="open_cart">Cart</a> -->
-		</li>
-	  	<% if user_signed_in? %>
-	  	<li ><%= link_to "My Orders", orders_path %></li>
-	    <li ><%= link_to "Edit Password", edit_user_registration_path %></li>
-	    <li ><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-	    <% elsif admin_signed_in? %>
-	    <li ><%= link_to "Orders", orders_path %></li>
-	    <li ><%= link_to "Sign Out", destroy_admin_session_path, method: :delete %></li>
-	    <% else %>
-	  	<li ><%= link_to "Sign In", new_user_session_path %></li>
-	    <li ><%= link_to "Register", new_user_registration_path %></li>
-	    <% end %>
-      </ul>
+  <% if params[:controller] != "welcome" %>
+    <div class="navbar-fixed">
+       <nav>
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo">Demo</a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li ><%= link_to "Products", products_path %></li>
+        		<li >
+        		<%= link_to cart_items_path do %>
+        			Cart <span class="badge" style="color:black"></span>
+        		<% end %>
+        		<!-- <a class="modal-trigger" href="#cart_items" id="open_cart">Cart</a> -->
+        			<!-- Cart <span class="badge" id="cart_counter" style="color:black"></span> -->
+        			<!-- Cart <span class="badge" style="color:black"></span> -->
+        		</li>
+      	  	<% if user_signed_in? %>
+        	  	<li ><%= link_to "My Orders", orders_path %></li>
+        	    <li ><%= link_to "Edit Password", edit_user_registration_path %></li>
+        	    <li ><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+      	    <% elsif admin_signed_in? %>
+        	    <li ><%= link_to "Orders", orders_path %></li>
+        	    <li ><%= link_to "Sign Out", destroy_admin_session_path, method: :delete %></li>
+      	    <% else %>
+        	  	<li ><%= link_to "Sign In", new_user_session_path %></li>
+        	    <li ><%= link_to "Register", new_user_registration_path %></li>
+      	    <% end %>
+          </ul>
+          <ul class="side-nav" id="mobile-demo">
+            <li ><%= link_to "Products", products_path %></li>
+        		<li >
+        			<%= link_to cart_items_path do %>
+        				Cart <span class="badge" id="cart_counter_mobile_nav" style="color:black"></span>
+        			<% end %>
+        			<!-- <a class="modal-trigger" href="#cart_items" id="open_cart">Cart</a> -->
+        		</li>
+      	  	<% if user_signed_in? %>
+        	  	<li ><%= link_to "My Orders", orders_path %></li>
+        	    <li ><%= link_to "Edit Password", edit_user_registration_path %></li>
+        	    <li ><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+      	    <% elsif admin_signed_in? %>
+        	    <li ><%= link_to "Orders", orders_path %></li>
+        	    <li ><%= link_to "Sign Out", destroy_admin_session_path, method: :delete %></li>
+      	    <% else %>
+        	  	<li ><%= link_to "Sign In", new_user_session_path %></li>
+        	    <li ><%= link_to "Register", new_user_registration_path %></li>
+      	    <% end %>
+          </ul>
+        </div>
+      </nav>
     </div>
-  </nav>
- </div>
+  <% end %>
   <% if notice %>
   	<script type="text/javascript">Materialize.toast('<%= notice %>', 3000)</script>
   <% end %>

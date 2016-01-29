@@ -23,7 +23,7 @@ $(document).on "page:change", ->
             toastContent = $('<span>Removing...!</span>');
             Materialize.toast(toastContent, 3000);
             location.reload();
-            location.reload();# Do it Twice..
+            location.reload();# Do it Thrice
             location.reload();
 
 

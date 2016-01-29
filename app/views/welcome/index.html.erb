@@ -1,2 +1,38 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div class="container">
+<div class="row">
+	<div class="cards">
+    <div class="col s12 m6 l6">
+      <div class="card">
+      	<div class="card-action red lighten-5">
+      		<center>
+          		<%= link_to products_path do %>
+				  <button class="btn waves-effect waves-light">Buy
+				    <i class="material-icons right">shopping_basket</i>
+				  </button>
+          		<% end %>
+          	</center>
+        </div>
+        <div class="card-content red lighten-3">
+          <p>I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m6 l6">
+      <div class="card">
+      	<div class="card-action red lighten-5">
+      		<center>
+      			<button class="btn waves-effect waves-light">Service
+					<i class="material-icons right">settings</i>
+				</button>
+          	</center>
+        </div>
+        <div class="card-content red lighten-3">
+          <p>I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively.</p>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+</div>
