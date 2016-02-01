@@ -1,0 +1,2 @@
+module WelcomeProductsHelper
+end

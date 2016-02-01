@@ -9,6 +9,7 @@
 	      <ul class="collection with-header">
 	        <li class="collection-header"><h4><%= @product.name %></h4></li>
 	        <li class="collection-item"><p><%= @product.description %></p></li>
+	        <li class="collection-item"><p>Rating: <%= @product.average_rating.round(2) %></p></li>
 	        <li class="collection-item"><h5>Price: <%= @product.price %></h5></li>
 	        <li class="collection-item"><%= link_to "Add to cart", cart_add_path( id:  @product.id ), remote: true, class: "waves-effect waves-light btn-large" %></li>
 	      </ul>

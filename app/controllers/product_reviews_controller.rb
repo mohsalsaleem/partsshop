@@ -25,7 +25,6 @@ class ProductReviewsController < ApplicationController
   # POST /product_reviews.json
   def create
     @product_review = ProductReview.new(product_review_params)
-    puts current_user.email
     @product_review.user_name = current_user.email
     respond_to do |format|
       if @product_review.save

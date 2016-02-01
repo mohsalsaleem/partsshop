@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'welcome_products/index'
+
+  get 'welcome_products/search'
+
   resources :product_reviews
   get 'orders/archived_orders' => 'orders#archived_orders'
   resources :orders do

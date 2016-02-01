@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 
-
 gem 'nprogress-rails'
 gem 'materialize-sass'
 gem 'faker'
